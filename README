@@ -2,4 +2,31 @@ RESTful API endpoints in jee project
 
 Stack: Wildlfy, PostgreSQL, RESTful, JPA, EJB
 
+Navodila:
 
+$ mkdir nekNovDir && cd nekNovDir
+
+$ git clone https://github.com/tipitasa/rest-endpoints-jee.git
+
+# move to directory from which to run the project
+$ cd rest-endpoints-jee/docker_files/runHere/
+
+# build images and run postgres and 
+# wildfly with a deployed war
+$ docker-compose up -d
+
+# GET for Hello World text
+http://localhost:8080/Assignment-WEB/rest/helloWorld
+
+# POST to save to database
+http://localhost:8080/Assignment-WEB/rest/helloWorld/2020-03-18
+
+# GET to save to database if postman is too far to reach
+http://localhost:8080/Assignment-WEB/rest/helloWorld/fejkdatum
+
+# login to postgres instance with password docker
+$ psql -h localhost -p 5400 -U docker -d assignmentdb
+
+# you will be inside of assignmentdb database
+# you can query assignmenttable column with:
+$ select * from assignmenttable;
