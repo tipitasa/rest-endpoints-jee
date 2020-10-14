@@ -1,0 +1,14 @@
+sudo docker-compose build
+
+# push to repo
+sudo docker login
+
+# sudo docker login docker.io
+
+# tega se ne razumem cisto
+# za tag vzami ID ki ga vidis pri sudo docker images
+sudo docker tag 2412bdea7022 tipitasa/dockerepo
+
+# push as latest
+sudo docker push tipitasa/dockerepo
+
