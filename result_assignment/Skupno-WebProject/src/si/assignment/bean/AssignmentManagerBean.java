@@ -34,8 +34,12 @@ public class AssignmentManagerBean {
 		at.setSomeDate(dateToSave);
 
 		em.persist(at);
+		
+		// flush to force persist to get id for return
+		em.flush();
 
-		return "Save OK";
+		int id = at.getId();
+		return "Saved assignmentTable with id=" + id;
 	}
 
 }
