@@ -1,0 +1,20 @@
+package si.assignment.bean;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class AssignmentManagerBean
+ */
+@Stateless
+@LocalBean
+public class AssignmentManagerBean {
+
+    /**
+     * Default constructor. 
+     */
+    public AssignmentManagerBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package si.assignment.resources;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import si.assignment.managerBeans.AssignmentManagerBean;
+
+/**
+ * @author plantgirl
+ *
+ */
+@Path("/helloWorld")
+@Stateless
+//@Produces("application/json")
+//@Consumes("application/json")
+public class HelloWorldResource {
+	
+	@EJB
+	private AssignmentManagerBean manager;
+	
+	@GET
+	@Produces("text/plain")
+	public String getHelloWorld() {
+//		return "Hi there!";
+		return manager.getHelloWorld();
+	}
+	
+	@GET
+	@Produces("text/plain")
+	@Consumes("text/plain")
+	@Path("{stringDate}")
+	public String saveTheDate(@PathParam("stringDate") String stringDate) {
+		String saveTheDate = manager.saveTheDate(stringDate);
+		return saveTheDate;
+	}
+}

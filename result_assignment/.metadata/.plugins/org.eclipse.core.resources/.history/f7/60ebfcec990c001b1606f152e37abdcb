@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+package si.assignment.resources;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import si.assignment.managerBeans.AssignmentManagerBean;
+
+/**
+ * @author plantgirl
+ *
+ */
+@Path("/helloWorld")
+@Stateless
+//@Produces("application/json")
+//@Consumes("application/json")
+public class HelloWorldResource {
+
+	@EJB
+	private AssignmentManagerBean manager;
+
+	@GET
+	@Path("{id}")
+	public Response getUserById(@PathParam("id") String id) {
+		return Response.status(200).entity("getUserById is called, id : " + id).build();
+
+	}
+
+//	@GET
+//	@Path("/neki/{tekst}")
+//	@Produces("text/plain")
+//	public String getHelloWorld(@PathParam("tekst") String txt) {
+////		return "Hi there!";
+//		System.out.println("--------- Blaz poglej! " + txt);
+//		return manager.getHelloWorld();
+//	}
+
+//	@GET
+////	@Produces("text/plain")
+////	@Consumes("text/plain")
+//	@Path("/neki/{krka}")
+//	public String saveTheDate(@PathParam("krka")String stringiDate) {
+//		String saveTheDate = manager.saveTheDate(stringiDate);
+//		return saveTheDate;
+//	}
+}

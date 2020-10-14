@@ -1,0 +1,26 @@
+package si.assignment.resources;
+
+import javax.ejb.Stateless;
+import javax.websocket.server.PathParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+@Stateless
+@Path("/kk")
+public class NovResource {
+
+	@POST
+	@Path("/{input}")
+	public String inputajMe(@PathParam("input") String input) {
+		String str = input;
+		return str;
+	}
+	
+	@GET
+	@Path("/{input}")
+	public String inputajMeget(@PathParam("input") String input) {
+		String str = input;
+		return str;
+	}
+}

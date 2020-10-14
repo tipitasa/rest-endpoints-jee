@@ -1,0 +1,23 @@
+package si.assignment.bean;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+/**
+ * Session Bean implementation class AssignmentManagerBean
+ */
+@Stateless
+//@LocalBean
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class AssignmentManagerBean {
+
+    /**
+     * Default constructor. 
+     */
+    public AssignmentManagerBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

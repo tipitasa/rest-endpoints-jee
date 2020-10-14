@@ -1,0 +1,10 @@
+package si.assignment.resources;
+
+import javax.ejb.Stateless;
+import javax.ws.rs.Path;
+
+@Stateless
+@Path("/kk")
+public class NovResource {
+
+}

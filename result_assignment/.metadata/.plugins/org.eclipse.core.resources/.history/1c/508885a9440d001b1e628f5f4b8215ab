@@ -1,0 +1,28 @@
+package si.assignment.bean;
+
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+/**
+ * Session Bean implementation class AssignmentManagerBean
+ */
+@Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class AssignmentManagerBean {
+
+	@PersistenceContext
+	protected EntityManager em;
+	
+	public String getHelloWorld() {
+		return "Hello Svet!";
+	}
+
+	public String saveTheDate(String stringDateToSave) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

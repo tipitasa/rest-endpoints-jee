@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;si.assignment.managerBeans.DateManagerBean&apos; to &apos;AssignmentManagerBean&apos;&#x0A;- Original project: &apos;Assignment-EJB&apos;&#x0A;- Original element: &apos;si.assignment.managerBeans.DateManagerBean&apos;&#x0A;- Renamed element: &apos;si.assignment.managerBeans.AssignmentManagerBean&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DateManagerBean&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/ejbModule&lt;si.assignment.managerBeans{DateManagerBean.java[DateManagerBean" matchStrategy="1" name="AssignmentManagerBean" qualified="false" references="true" similarDeclarations="false" stamp="1602510956958" textual="false" version="1.0"/>
+</session>

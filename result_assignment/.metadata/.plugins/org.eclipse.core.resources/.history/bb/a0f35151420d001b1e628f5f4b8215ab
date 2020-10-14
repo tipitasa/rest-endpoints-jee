@@ -1,0 +1,25 @@
+package si.assignment.resources;
+
+import javax.enterprise.context.RequestScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@RequestScoped
+@Path("helloWorld")
+@Produces({ "application/json", "text/plain" })
+@Consumes({ "application/json", "text/plain" })
+public class HelloWorldResource {
+	
+	@PersistenceContext
+	protected EntityManager em;
+
+	@GET
+	public String getHelloWorld() {
+		return "Hi there!";
+//		return manager.getHelloWorld();
+	}
+}

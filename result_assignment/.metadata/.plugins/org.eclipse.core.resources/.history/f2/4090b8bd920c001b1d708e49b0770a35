@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package si.assignment.resources;
+
+import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+/**
+ * @author plantgirl
+ *
+ */
+@Path("/helloWorld")
+//@Produces("application/json")
+@Consumes("application/json")
+public class HelloWorldResource {
+	@GET
+	@Produces("text/plain")
+	public String getHelloWorld() {
+		return "Hi there!";
+	}
+	
+	@GET
+	@Produces("text/plain")
+	@Path("/{stringDate}")
+	public String saveTheDate(@PathParam("stringDate") final String stringDate) {
+		
+	}
+}

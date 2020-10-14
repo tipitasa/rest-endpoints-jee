@@ -1,0 +1,11 @@
+#Tue Oct 13 12:49:09 CEST 2020
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1602586149113
+c=0
+cmp=usage
+a=finishWizard
+cl=org.jboss.tools.ws.jaxrs.ui.wizards.JaxrsResourceCreationWizard
+v=2.2.300
+s=1

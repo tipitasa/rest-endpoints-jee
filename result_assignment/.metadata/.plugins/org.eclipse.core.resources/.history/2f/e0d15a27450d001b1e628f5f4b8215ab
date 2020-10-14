@@ -1,0 +1,37 @@
+package si.assignment.resources;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
+import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import com.sun.istack.internal.NotNull;
+
+import si.assignment.bean.AssignmentManagerBean;
+
+//@RequestScoped
+//@Stateless
+@Path("helloWorld")
+@Produces({ "application/json", "text/plain" })
+@Consumes({ "application/json", "text/plain" })
+public class HelloWorldResource {
+	
+	@EJB
+	AssignmentManagerBean manager;
+
+	@GET
+	public String getHelloWorld() {
+		return manager.getHelloWorld();
+	}
+	
+	@GET
+	@Path("/ja/{dateToSave}")
+	public String saveTheDate(@PathParam("dateToSave") @NotNull final String dateToSave) {
+//		String dateToSave = "2020-03-17";
+		return manager.saveTheDate(dateToSave);
+	}
+}

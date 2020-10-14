@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package si.assignment.resources;
+
+import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+/**
+ * @author plantgirl
+ *
+ */
+//@RequestScoped
+@Path("/helloWorld")
+//@Produces("application/json")
+@Consumes("application/json")
+public class HelloWorldResource {
+	@GET
+	@Produces("text/plain")
+	public String getHelloWorld() {
+		return "Hi there!";
+	}
+}
