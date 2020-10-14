@@ -30,3 +30,6 @@ $ psql -h localhost -p 5400 -U docker -d assignmentdb
 # you will be inside of assignmentdb database
 # you can query assignmenttable column with:
 $ select * from assignmenttable;
+
+Swagger:
+https://app.swaggerhub.com/apis/tipitasa/Result-API/1.0.0
