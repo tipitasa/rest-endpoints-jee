@@ -1,7 +1,16 @@
-# build images and run postgres and
+# build images and run postgres and 
 # wildfly with a deployed war
 
 $ docker-compose up -d
+
+# GET for Hello World text
+http://localhost:8080/Assignment-WEB/rest/helloWorld
+
+# POST to save to database
+http://localhost:8080/Assignment-WEB/rest/helloWorld/2020-03-18
+
+# GET to save to database if postman is too far to reach
+http://localhost:8080/Assignment-WEB/rest/helloWorld/fejkdatum
 
 # login to postgres instance with password docker
 $ psql -h localhost -p 5400 -U docker -d assignmentdb
