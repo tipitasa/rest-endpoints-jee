@@ -1,0 +1,14 @@
+# build images and run postgres and
+# wildfly with a deployed war
+
+$ docker-compose up -d
+
+
+
+# login to postgres instance with password docker
+$ psql -h localhost -p 5400 -U docker -d assignmentdb
+
+# you will be inside of assignmentdb database
+# you can query assignmenttable column with:
+$ select * from assignmenttable;
+
