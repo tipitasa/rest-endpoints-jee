@@ -20,7 +20,7 @@ import si.assignment.managerBeans.AssignmentManagerBean;
  */
 @Stateless
 @Path("helloWorld")
-@Produces(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
 
 	@EJB
