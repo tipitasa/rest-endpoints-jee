@@ -1,6 +1,18 @@
+RESTful API endpoints in jee project
+
+Stack: Wildlfy, PostgreSQL, RESTful, JPA, EJB
+
+Navodila:
+
+$ mkdir nekNovDir && cd nekNovDir
+
+$ git clone https://github.com/tipitasa/rest-endpoints-jee.git
+
+# move to directory from which to run the project
+$ cd rest-endpoints-jee/docker_files/runHere/
+
 # build images and run postgres and 
 # wildfly with a deployed war
-
 $ docker-compose up -d
 
 # GET for Hello World text
@@ -19,3 +31,5 @@ $ psql -h localhost -p 5400 -U docker -d assignmentdb
 # you can query assignmenttable column with:
 $ select * from assignmenttable;
 
+Swagger:
+https://app.swaggerhub.com/apis/tipitasa/Result-API/1.0.0
