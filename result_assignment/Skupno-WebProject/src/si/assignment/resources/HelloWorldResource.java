@@ -25,8 +25,7 @@ public class HelloWorldResource {
 
 	@GET
 	public Response getHelloWorld() {
-		String helloWorldString = manager.getHelloWorld();
-		return Response.status(Response.Status.OK).entity(helloWorldString).build();
+		return manager.getHelloWorld();
 	}
 
 	@POST

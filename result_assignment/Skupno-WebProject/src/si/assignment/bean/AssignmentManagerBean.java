@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import si.assignment.dto.ResponseDTO;
 import si.assignment.entity.AssignmentTable;
 
 /**
@@ -24,8 +25,12 @@ public class AssignmentManagerBean {
 	@PersistenceContext
 	protected EntityManager em;
 
-	public String getHelloWorld() {
-		return "Hello world!";
+	public Response getHelloWorld() {
+		String helloWorldString = "Hello world!";
+		ResponseDTO dto = new ResponseDTO();
+		dto.setResponse(helloWorldString);
+
+		return Response.status(Response.Status.OK).entity(dto).build();
 	}
 
 	/**
@@ -37,11 +42,11 @@ public class AssignmentManagerBean {
 		// yyyy-mm-dd
 		DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
 		LocalDate dateToSave;
-		
+
 		try {
 			dateToSave = LocalDate.parse(stringDateToSave, formatter);
-			
-		} catch(DateTimeParseException e) {
+
+		} catch (DateTimeParseException e) {
 			String errorMessage = "Date could not be parsed. Please provide it in the yyyy-MM-dd format.";
 			return Response.status(Status.FORBIDDEN).entity(errorMessage).build();
 		}
@@ -50,14 +55,16 @@ public class AssignmentManagerBean {
 		at.setSomeDate(dateToSave);
 
 		em.persist(at);
-		
+
 		// flush to force persist to get id for return
 		em.flush();
 
-		int id = at.getId();
-		return Response.status(Response.Status.CREATED).entity(id).build();
+		int createdAtId = at.getId();
+		ResponseDTO dto = new ResponseDTO();
+		dto.setResponse(String.valueOf(createdAtId));
+		return Response.status(Response.Status.CREATED).entity(dto).build();
 	}
-	
+
 	public void deleteAssignmentTable(final String rowId) {
 		// flush to force persist
 		em.flush();
