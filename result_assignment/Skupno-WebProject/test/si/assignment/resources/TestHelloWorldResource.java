@@ -50,7 +50,8 @@ public class TestHelloWorldResource {
 
 			// assert correct content
 			content = getStream(con);
-			assertEquals("Hello world!", content.toString());
+			String resp = "{" + "\"" + "response" + "\"" + ":" + "\"" + "Hello world!" +"\"" +"}";
+			assertEquals(resp, content.toString());
 
 			// assert returned header
 			String contentType = con.getHeaderField("Content-Type");
@@ -126,7 +127,8 @@ public class TestHelloWorldResource {
 			// delete object
 			content = getStream(con);
 			String createdId = content.toString();
-						
+			createdId = parseOutObjectId(createdId);
+			
 			url = new URL(BASE_URL + "/helloWorld/delDate/" + createdId);
 			con = (HttpURLConnection) url.openConnection();
 			
@@ -188,6 +190,28 @@ public class TestHelloWorldResource {
 		}
 		in.close();
 		return content;
+	}
+	
+	private String parseOutObjectId(String jsonString) {
+		// {"response":"76"}
+		String objectId;
+		StringBuilder sb = new StringBuilder(jsonString);
+		String narekovaj = "\"";
+		
+		String unwantedHead = "{" + narekovaj + "response" + narekovaj + ":" + narekovaj; 
+		int beginIndexOfUnwanted = sb.indexOf(unwantedHead);
+		int lastIndexOfUnwanted = beginIndexOfUnwanted + unwantedHead.length();
+		
+		sb.delete(beginIndexOfUnwanted, lastIndexOfUnwanted);
+		
+		String unwantedTail = narekovaj + "}";
+		beginIndexOfUnwanted = sb.indexOf(unwantedTail);
+		lastIndexOfUnwanted = beginIndexOfUnwanted + unwantedTail.length();
+		
+		sb.delete(beginIndexOfUnwanted, lastIndexOfUnwanted);
+		
+		objectId = sb.toString();
+		return objectId;
 	}
 
 }
